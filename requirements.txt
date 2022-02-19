@@ -1,4 +1,3 @@
-pickle
 pandas
 streamlit
 string
