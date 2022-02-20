@@ -39,7 +39,7 @@ with st.form(key='patient_form'):
    drugName = st.text_input("What was the name of the drug prescribed to you: ")
    submit_button = st.form_submit_button(label='Submit')
   
-reviewl = st.text_input(label="Write a review about the drug here: ")  
+reviewl = st.text_input(label="Write a comprehensive review about the drug here: ")  
 inputs = [reviewl] #our inputs
       
 if st.button('Predict'): #making and printing our prediction
