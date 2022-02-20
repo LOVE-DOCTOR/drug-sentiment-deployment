@@ -20,12 +20,13 @@ def main():
   st.sidebar.text("This is a web app that is used to predict") 
   st.sidebar.text("user emotions or sentiment from his/her") 
   st.sidebar.text("review about a particular drug to assist") 
-  st.sidebar.text("doctors in clinical trials")
+  st.sidebar.text("pharmaceutical agents in post marketing")
+  st.sidebar.text("Surveillance of drugs")
+  
   
   st.sidebar.header("What tools where used to make this?")
   st.sidebar.text("The Model was trained using Support") 
-  st.sidebar.text("Vector Machines with a dataset from") 
-  st.sidebar.text("UCI Machine Learning Repository")
+  st.sidebar.text("Vector Machines")
   
   
   
