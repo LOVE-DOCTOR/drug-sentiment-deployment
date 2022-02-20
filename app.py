@@ -4,8 +4,8 @@ import string
 import pandas as pd
 import joblib
 
-loaded_model = joblib.load("sent_model.pkl")
-loaded_vector = joblib.load("ttf.pkl")
+loaded_model = joblib.load("sent_model.pkl.dvc")
+loaded_vector = joblib.load("ttf.pkl.dvc")
 
 def main():
   st.markdown("<h1 style='text-align: center; color: White;background-color:#e84343'>DRUG SENTIMENT ANALYSIS</h1>", unsafe_allow_html=True)
