@@ -1,11 +1,16 @@
 import streamlit as st
 import numpy as np
-import string
 import pandas as pd
-import joblib
+import pickle
+import lzma
 
-loaded_model = joblib.load(open("https://drive.google.com/file/d/1jg8MfT3YM6GXtLv9rodDSHPszaZQTAcI/view?usp=sharing"))
-loaded_vector = joblib.load(open("https://drive.google.com/file/d/1OQcEVU8GLvsD-mQGO0c6j01rRjjpg0bv/view?usp=sharing"))
+#Loading sentiment analysis model
+with lzma.open("sent_model.xz", "rb") as f:
+    loaded_model = pickle.load(f)
+    
+#Loading vectorizer
+with lzma.open("tff.xz", "rb") as f:
+    loaded_vectorizer = pickle.load(f)
 
 def main():
   st.markdown("<h1 style='text-align: center; color: White;background-color:#e84343'>DRUG SENTIMENT ANALYSIS</h1>", unsafe_allow_html=True)
@@ -38,7 +43,7 @@ reviewl = st.text_input(label="Write a review about the drug here: ")
 inputs = [reviewl] #our inputs
       
 if st.button('Predict'): #making and printing our prediction
-    result = loaded_model.predict(loaded_vector.transform(inputs))
+    result = loaded_model.predict(loaded_vectorizer.transform(inputs))
     if result == 0:
         st.success(f"Thank you for your review {lname}, we're sorry to hear about your dissatisfaction with the {drugName} recommended for {ailment}, please visit the clinic in the next 24 - 48 hours")
     elif result == 1:
@@ -49,7 +54,7 @@ d = {"First Name": fname,
      "Condition": ailment,
      "drugName": drugName,
      "Review": reviewl,
-     "review_sentiment": loaded_model.predict(loaded_vector.transform(inputs))}
+     "review_sentiment": loaded_model.predict(loaded_vectorizer.transform(inputs))}
 
 df = pd.DataFrame(d)
 df[df['review_sentiment'] == 1].replace(1, "Positive")
