@@ -42,7 +42,7 @@ with st.form(key='patient_form'):
    drugName = st.text_input("What was the name of the drug prescribed to you: ")
    submit_button = st.form_submit_button(label='Submit')
   
-reviewl = st.text_input(label="Write a review about the drug here: You can help the model to better predict the mood of your text if you avoid using negation. e.g Use (my health has worsened) instead of (my health has not improved)")
+reviewl = st.text_input(label="Write a review about the drug here: You can help the model to better predict the mood of your text if you avoid using negation. e.g Use (my health has worsened) instead of (my health has not improved). Now you can write your own review!")
 
 inputs = [reviewl] #our inputs
     
