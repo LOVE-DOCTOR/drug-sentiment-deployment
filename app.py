@@ -42,9 +42,9 @@ with st.form(key='patient_form'):
   
 reviewl = st.text_input(label="Write a comprehensive review about the drug: ")
 
-while len(reviewl) < 10:
-    st.warning("The review is too short, please write a detailed review. Note: Make use of positive or negative words to help the model predict better. e.g use (I feel bad) instead of (I don't feel good)")
-    continue        
+#while len(reviewl) < 10:
+ #   st.warning("The review is too short, please write a detailed review. Note: Make use of positive or negative words to help the model predict better. e.g use (I feel bad) instead of (I don't feel good)")
+  #  continue        
 
 inputs = [reviewl] #our inputs
       
