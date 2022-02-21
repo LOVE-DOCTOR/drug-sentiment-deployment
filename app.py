@@ -50,9 +50,9 @@ inputs = [reviewl] #our inputs
 if st.button('Predict'): #making and printing our prediction
     result = loaded_model.predict(loaded_vectorizer.transform(inputs))
     if result == 0:
-        st.success(f"Thank you for your review {lname}, we're sorry to hear about your dissatisfaction with the {drugName} recommended for {ailment}, please visit the clinic in the next 24 - 48 hours")
+        st.success(f"Thank you for your review {lname}, our algorithm has detected a negative review for {drugName} recommended for {ailment}, please report back again tomorrow to let us know how you feel. If feeling persists, after 7 days, report physically to where you received the medication.")
     elif result == 1:
-        st.success(f"Thank you for the positive feeback {lname}, we're glad to hear that you feel better and {drugName} works well in treating {ailment} for you")
+        st.success(f"Thank you for the positive feeback {lname}, our algorithm has detected a positive review for {drugName} recommended for {ailment}. We're happy to see that {drugName} gives positive results for you. Please report daily for the next 2 weeks, this is to ensure that there are no adverse reactions from you due to the medication.")
 
 d = {"First Name": fname,
      "Last Name": lname,
