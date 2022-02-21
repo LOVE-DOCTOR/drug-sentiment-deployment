@@ -40,7 +40,13 @@ with st.form(key='patient_form'):
    drugName = st.text_input("What was the name of the drug prescribed to you: ")
    submit_button = st.form_submit_button(label='Submit')
   
-reviewl = st.text_input(label="Write a comprehensive review about the drug: ")  
+reviewl = st.text_input(label="Write a comprehensive review about the drug: ")
+for i in reviewl:
+    while len(i) < 10:
+        st.warning("The review is too short, please write a more detailed review. Note: Make use of positive or negative words to correctly express yourself. e.g use (I feel bad) instead of (I don't feel good)")
+    else:
+        inputs = [reviewl] #our inputs
+
 inputs = [reviewl] #our inputs
       
 if st.button('Predict'): #making and printing our prediction
