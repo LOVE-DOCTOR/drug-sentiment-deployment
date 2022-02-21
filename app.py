@@ -9,7 +9,7 @@ with lzma.open("sent_model_svc.xz", "rb") as f:
     loaded_model = pickle.load(f)
     
 #Loading vectorizer
-with lzma.open("tff.xz_svc", "rb") as f:
+with lzma.open("tff_svc.xz", "rb") as f:
     loaded_vectorizer = pickle.load(f)
 
 def main():
