@@ -59,7 +59,7 @@ if st.button('Predict'): #making and printing our prediction
         st.success(f"Thank you for your review {lname}, our algorithm has detected a negative review for {drugName} recommended for {ailment}, please report back again tomorrow to let us know how you feel. If feeling persists, after 7 days, report physically to where you received the medication.")
         
         st.header(f"SERIOUS NEGATIVE REACTIONS TO {drugName}?")
-        with st.expander("Please set an appointment here: "):
+        with st.expander("If yes, please set an appointment here: "):
             with st.form(key='Appointment_form'):
                 appointment_date = st.date_input("Pick a date: ")
                 appointment_time = st.time_input("Pick a time: ")
