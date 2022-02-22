@@ -20,16 +20,16 @@ def main():
   st.markdown("<h1 style='text-align: center; color: White;background-color:#e84343'>DRUG SENTIMENT ANALYSIS</h1>", unsafe_allow_html=True)
   st.markdown("<h3 style='text-align: center; color: White'>Just drop your review and we will do the rest.</h3>", unsafe_allow_html=True)
  
-  st.sidebar.header("What is this Project about?")
-  st.sidebar.text("This is a web app that is used to predict") 
-  st.sidebar.text("user emotions or sentiment from his/her") 
-  st.sidebar.text("review about a particular drug to assist") 
-  st.sidebar.text("doctors in clinical trials")
+  #st.sidebar.header("What is this Project about?")
+  #st.sidebar.text("This is a web app that is used to predict") 
+  #st.sidebar.text("user emotions or sentiment from his/her") 
+  #st.sidebar.text("review about a particular drug to assist") 
+  #st.sidebar.text("doctors in clinical trials")
   
-  st.sidebar.header("What tools where used to make this?")
-  st.sidebar.text("The Model was trained using Support") 
-  st.sidebar.text("Vector Machines with a dataset from") 
-  st.sidebar.text("UCI Machine Learning Repository")
+  #st.sidebar.header("What tools where used to make this?")
+  #st.sidebar.text("The Model was trained using Support") 
+  #st.sidebar.text("Vector Machines with a dataset from") 
+  #st.sidebar.text("UCI Machine Learning Repository")
   
   
   
@@ -57,6 +57,16 @@ if st.button('Predict'): #making and printing our prediction
     result = loaded_model.predict(loaded_vectorizer.transform(inputs))
     if result == 0:
         st.success(f"Thank you for your review {lname}, our algorithm has detected a negative review for {drugName} recommended for {ailment}, please report back again tomorrow to let us know how you feel. If feeling persists, after 7 days, report physically to where you received the medication.")
+        with st.sidebar:
+            st.header(f"SERIOUS NEGATIVE REACTIONS TO {drugName}?")
+            with st.expander("Please set an appointment here: "):
+                with st.form(key='Appointment_form'):
+                    appointment_date = st.date_input("Pick a date: ")
+                    appointment_time = st.time_input("Pick a time: ")
+                    appointment_button = st.form_submit_button(label='Submit')
+                    if appointment_button:
+                        st.success("You have successfully set an appoinment, an email will be sent to you as a reminder a day to the appointment")
+
     elif result == 1:
         st.success(f"Thank you for the positive feeback {lname}, our algorithm has detected a positive review for {drugName} recommended for {ailment}. We're happy to see that {drugName} gives positive results for you. Please report daily for the next 2 weeks, this is to ensure that there are no adverse reactions from you due to the medication.")
 
