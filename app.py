@@ -4,6 +4,7 @@ import string
 import pandas as pd
 import pickle
 import lzma
+import datetime
 
 #Loading sentiment analysis model
 with lzma.open("sent_model_svc.xz", "rb") as f:
@@ -36,8 +37,10 @@ if __name__ =='__main__':
       main() #calling the main method
       
 with st.form(key='patient_form'):
+   date = st.date_input("Select today's date: ")
    fname = st.text_input("First name: ")
    lname = st.text_input("Last name: ")
+   age = st.number_input("Your age: ", step=1)
    ailment = st.text_input("What's the nature of your sickness: ")
    drugName = st.text_input("What was the name of the drug prescribed to you: ")
    submit_button = st.form_submit_button(label='Submit')
