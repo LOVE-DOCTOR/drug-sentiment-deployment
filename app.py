@@ -71,15 +71,16 @@ if st.button('Predict'): #making and printing our prediction
         st.success(f"Thank you for the positive feeback {lname}, our algorithm has detected a positive review for {drugName} recommended for {ailment}. We're happy to see that {drugName} gives positive results for you. Please report daily for the next 2 weeks, this is to ensure that there are no adverse reactions from you due to the medication.")
 
 
-add_selectbox = st.selectbox(f"Hi {lname}, thank you for filling up the form, please let us your contact preference below for reminders and appointments", ("Email", "Mobile phone"))
+with st.expander("Click here to set your contact information. If previously set, you can skip this!")
+    add_selectbox = st.selectbox(f"Hi {lname}, thank you for filling up the form, please let us your contact preference below for reminders and appointments", ("Email", "Mobile phone"))
 
-if add_selectbox == "Email":
-    cemail = st.text_input("Put your email here: ")
-    if cemail:
-        st.success("Contact set to email")
-elif add_selectbox == "Mobile phone":
-    cmobile = st.number_input("Put your number here with the country code: ", step=1)
-    if cmobile:
-        st.success("Contact set to Mobile phone")
+    if add_selectbox == "Email":
+        cemail = st.text_input("Put your email here: ")
+        if cemail:
+            st.success("Contact set to email")
+    elif add_selectbox == "Mobile phone":
+        cmobile = st.number_input("Put your number here with the country code: ", step=1)
+        if cmobile:
+            st.success("Contact set to Mobile phone")
     
     
