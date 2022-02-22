@@ -60,18 +60,6 @@ if st.button('Predict'): #making and printing our prediction
     elif result == 1:
         st.success(f"Thank you for the positive feeback {lname}, our algorithm has detected a positive review for {drugName} recommended for {ailment}. We're happy to see that {drugName} gives positive results for you. Please report daily for the next 2 weeks, this is to ensure that there are no adverse reactions from you due to the medication.")
 
-d = {"First Name": fname,
-     "Last Name": lname,
-     "Condition": ailment,
-     "drugName": drugName,
-     "Review": reviewl,
-     "review_sentiment": loaded_model.predict(loaded_vectorizer.transform(inputs))}
-
-df = pd.DataFrame(d)
-df[df['review_sentiment'] == 1].replace(1, "Positive")
-df[df['review_sentiment'] == 0].replace(0, "Negative")
-df.to_csv("Patient status.csv", index=False)
-
 
 
 
