@@ -71,7 +71,7 @@ if st.button('Predict'): #making and printing our prediction
         st.success(f"Thank you for the positive feeback {lname}, our algorithm has detected a positive review for {drugName} recommended for {ailment}. We're happy to see that {drugName} gives positive results for you. Please report daily for the next 2 weeks, this is to ensure that there are no adverse reactions from you due to the medication.")
 
 
-with st.expander("Click here to set your contact information. If previously set, you can skip this!")
+with st.expander("Click here to set your contact information. If previously set, you can skip this!"):
     add_selectbox = st.selectbox(f"Hi {lname}, thank you for filling up the form, please let us your contact preference below for reminders and appointments", ("Email", "Mobile phone"))
 
     if add_selectbox == "Email":
