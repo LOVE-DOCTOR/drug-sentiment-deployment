@@ -18,8 +18,8 @@ with lzma.open("tff_svc.xz", "rb") as f:
 
 def main():
   st.markdown("<h1 style='text-align: center; color: White;background-color:#e84343'>DRUG SENTIMENT ANALYSIS</h1>", unsafe_allow_html=True)
-  st.markdown("<h3 style='text-align: center; color: White'>Just drop your review and we will do the rest.</h3>", unsafe_allow_html=True)
- 
+  st.markdown("<h3 style='text-align: center; color: White'>POST MARKETING SURVEILLANCE</h3>", unsafe_allow_html=True)
+  st.write("<h8 style='text-align: left; color: White'> If you're viewing this website, then you must have volunteered and agreed to participate in our post marketing surveillance for our new drug. Please, make sure you fill in the correct information in the forms as it helps us in our analysis in determining whether the drug should be released to the main market. Incase of any dangerous reactions to any of the drugs, please make sure to set an appointment in a popup that shows below if you give a negative review.</h8>", unsafe_allow_html=True)
   #st.sidebar.header("What is this Project about?")
   #st.sidebar.text("This is a web app that is used to predict") 
   #st.sidebar.text("user emotions or sentiment from his/her") 
@@ -71,6 +71,15 @@ if st.button('Predict'): #making and printing our prediction
         st.success(f"Thank you for the positive feeback {lname}, our algorithm has detected a positive review for {drugName} recommended for {ailment}. We're happy to see that {drugName} gives positive results for you. Please report daily for the next 2 weeks, this is to ensure that there are no adverse reactions from you due to the medication.")
 
 
+add_selectbox = st.selectbox(f"Hi {lname}, thank you for filling up the form, please let us your contact preference below for reminders and appointments", ("Email", "Mobile phone"))
 
-
-
+if add_selectbox == "Email":
+    cemail = st.text_input("Put your email here: ")
+    if cemail:
+        st.success("Contact set to email")
+elif add_selectbox == "Mobile phone":
+    cmobile = st.number_input("Put your number here with the country code: ", step=1)
+    if cmobile:
+        st.success("Contact set to Mobile phone")
+    
+    
