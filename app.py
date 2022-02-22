@@ -57,15 +57,15 @@ if st.button('Predict'): #making and printing our prediction
     result = loaded_model.predict(loaded_vectorizer.transform(inputs))
     if result == 0:
         st.success(f"Thank you for your review {lname}, our algorithm has detected a negative review for {drugName} recommended for {ailment}, please report back again tomorrow to let us know how you feel. If feeling persists, after 7 days, report physically to where you received the medication.")
-        with st.sidebar:
-            st.header(f"SERIOUS NEGATIVE REACTIONS TO {drugName}?")
-            with st.expander("Please set an appointment here: "):
-                with st.form(key='Appointment_form'):
-                    appointment_date = st.date_input("Pick a date: ")
-                    appointment_time = st.time_input("Pick a time: ")
-                    appointment_button = st.form_submit_button(label='Submit')
-                    if appointment_button:
-                        st.success("You have successfully set an appoinment, an email will be sent to you as a reminder a day to the appointment")
+        
+        st.header(f"SERIOUS NEGATIVE REACTIONS TO {drugName}?")
+        with st.expander("Please set an appointment here: "):
+            with st.form(key='Appointment_form'):
+                appointment_date = st.date_input("Pick a date: ")
+                appointment_time = st.time_input("Pick a time: ")
+                appointment_button = st.form_submit_button(label='Submit')
+                if appointment_button:
+                    st.success("You have successfully set an appoinment, an email will be sent to you as a reminder a day to the appointment")
 
     elif result == 1:
         st.success(f"Thank you for the positive feeback {lname}, our algorithm has detected a positive review for {drugName} recommended for {ailment}. We're happy to see that {drugName} gives positive results for you. Please report daily for the next 2 weeks, this is to ensure that there are no adverse reactions from you due to the medication.")
